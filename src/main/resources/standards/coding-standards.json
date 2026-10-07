@@ -1,0 +1,68 @@
+[
+  {
+    "category": "naming",
+    "title": "Java Naming Conventions",
+    "content": "Classes must be PascalCase (e.g., UserService). Methods and variables must be camelCase (e.g., getUserById). Constants must be UPPER_SNAKE_CASE. Packages must be lowercase (e.g., com.autosdlc.service). Avoid abbreviations.",
+    "tags": "java,naming,convention,camelcase,pascalcase"
+  },
+  {
+    "category": "security",
+    "title": "Password Storage",
+    "content": "NEVER store passwords in plaintext. Always use BCryptPasswordEncoder with strength 10 or higher. Password field in DB must be VARCHAR(255) minimum. Never log passwords or return them in API responses.",
+    "tags": "security,password,bcrypt,authentication,hashing"
+  },
+  {
+    "category": "api",
+    "title": "REST Endpoint Naming",
+    "content": "Use plural nouns and kebab-case. Version your APIs. Examples: GET /api/v1/users, POST /api/v1/users, GET /api/v1/users/{id}. Use nouns, not verbs. Use proper HTTP methods: GET for fetch, POST for create, PUT for full update, PATCH for partial, DELETE for delete.",
+    "tags": "api,rest,endpoint,naming,http"
+  },
+  {
+    "category": "database",
+    "title": "JPA Best Practices",
+    "content": "Always use FetchType.LAZY for @ManyToOne and @OneToMany to avoid N+1 problem. Use @Transactional on service layer, not controller. Use @Column(name=...) to map snake_case DB columns. Always add created_at, updated_at timestamps. Use UUID for public IDs, Long for internal.",
+    "tags": "jpa,hibernate,database,lazy,transactional"
+  },
+  {
+    "category": "api",
+    "title": "Input Validation",
+    "content": "Always validate request DTOs using Jakarta Validation: @NotNull, @NotBlank, @Size, @Email. Use @Valid on controller method params. Return 400 Bad Request with clear field errors. Never trust client input.",
+    "tags": "validation,api,notnull,notblank,valid"
+  },
+  {
+    "category": "testing",
+    "title": "Unit Test Standards",
+    "content": "Follow Given-When-Then pattern. Test class name: ClassNameTest. Use JUnit 5 + Mockito. Mock external dependencies. Aim for 80% coverage on service layer. Each service method must have at least one success and one failure test case.",
+    "tags": "testing,junit,mockito,tdd,given-when-then"
+  },
+  {
+    "category": "api",
+    "title": "API Response Structure",
+    "content": "All APIs must return consistent wrapper: {status, message, data, timestamp}. Never return raw entities. Always use DTOs. Use ResponseEntity with proper HTTP status codes. Error response must include errorCode field.",
+    "tags": "api,response,dto,responseentity,wrapper"
+  },
+  {
+    "category": "security",
+    "title": "SQL Injection Prevention",
+    "content": "Always use JPA Repositories or Prepared Statements. Never concatenate user input into @Query with String. Use parameterized queries. Validate all inputs before using in queries. Use Spring Data JPA Specifications for dynamic queries.",
+    "tags": "security,sql,injection,jpa,prepared"
+  },
+  {
+    "category": "coding",
+    "title": "Exception Handling",
+    "content": "Never use try-catch in controllers. Use @ControllerAdvice with @ExceptionHandler for global handling. Create custom exceptions like ResourceNotFoundException, BusinessException. Log exception with slf4j logger with proper level. Never swallow exceptions.",
+    "tags": "coding,exception,controlleradvice,error,logging"
+  },
+  {
+    "category": "coding",
+    "title": "Logging Standards",
+    "content": "Use SLF4J with Lombok @Slf4j. Log levels: INFO for business flow, DEBUG for detailed data, ERROR for failures. Never use System.out.println. Include jobId/taskId in MDC for tracing. Log entry and exit of agent executions.",
+    "tags": "logging,slf4j,mdc,tracing,debugging"
+  },
+  {
+    "category": "requirements",
+    "title": "Business Requirements Format",
+    "content": "For BA Agent: Every requirement must have ID (REQ-001), Title, Description, Priority (MUST/SHOULD/COULD), Acceptance Criteria in Gherkin format (Given-When-Then), and related User Story. BRD must contain Project Overview, Scope, Stakeholders, Functional Requirements, Non-Functional Requirements.",
+    "tags": "ba,requirements,brd,userstory,acceptance,gherkin"
+  }
+]
